@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Πίνακας Αδειών Προσωπικού</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Όνομα Εργαζόμενου</th>
+                <th scope="col">Επιλογές</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in requests %}
+            <tr>
+                <td>{{ request.id }}</td>
+                <td><a href="/employee/{{ request.employee.id }}">{{ request.employee.name }} {{ request.employee.surname }}</a></td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="#">Approve</a>
+                    <a class="btn btn-danger btn-sm" href="#">Reject</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

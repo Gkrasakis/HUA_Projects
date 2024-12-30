@@ -1,0 +1,55 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="container">
+    <h6 class="mb-4">Προβολή αιτήσεων του  {{ employee.name }}</h6>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Όνομα</th>
+                <th scope="col">Επιλογές</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for request in requests %}
+            <tr>
+                <td>{{ request.id }}</td>
+                <td>{{ request.name }}</td>
+                <td>
+                    <a class="btn btn-primary btn-sm" href="#">Edit</a>
+                    <a class="btn btn-danger btn-sm" href="/request/{{ employee.id }}/{{ request.id }}/delete">Delete</a>
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+                    <button type="button" class="btn btn-danger btn-sm delete-request" data-request-id="{{ request.id }}">Delete (JS)</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="{{ url_for('show_request_form', uid=employee.id) }}">Προσθήκη</a>
+</div>
+
+<script type="text/javascript">
+    // CSRF token
+    var csrf_token = "{{ csrf_token() }}";
+
+    // Handle delete request button click using jQuery
+    $(".delete-request").click(function() {
+        var requestId = $(this).data('request-id');
+        var urlCall = "/request/" + requestId;
+        $.ajax({
+            url: urlCall,
+            type: 'DELETE',
+            headers: {
+                "X-CSRFToken": csrf_token,
+            },
+            success: function(result) {
+                console.log(result);
+                location.reload(); // Reload page after successful deletion
+            },
+            error: function(result) {
+                console.log(result);
+            },
+        });
+    });
+</script>
+{% endblock %}

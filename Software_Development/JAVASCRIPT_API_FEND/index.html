@@ -1,0 +1,44 @@
+<!--REFS https://developer.mozilla.org/en-US/docs/Web/HTML
+         https://html5doctor.com/
+         https://developer.mozilla.org/en-US/
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--  character encoding: UTF-8.-->
+    <meta charset="UTF-8">
+    <title>Data Retrieval</title>
+    <!-- Here links to the style.css-->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--This is a container-->
+<div class="container">
+    <!--    This is the button for get_data from API-->
+    <button id="fetchData">Fetch Data</button>
+    <div id="results" style="display: none;">
+        <table id="data-table">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <select id="data-dropdown">
+            <option value="">Select ID</option>
+        </select>
+    </div>
+</div>
+<!--The modal i am using for product details when ID selected-->
+<div id="modal" class="modal">
+    <div id="modal-content" class="modal-content"></div>
+    <span id="modal-close" class="modal-close">&times;</span>
+</div>
+<!--Link for the external javascript file-->
+<script src="script.js" defer></script>
+</body>
+</html>

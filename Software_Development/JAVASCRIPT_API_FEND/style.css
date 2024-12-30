@@ -1,0 +1,48 @@
+/* REFS :
+https://css-tricks.com/
+
+ */
+body {font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+.container {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+.modal {
+    position: fixed; /* Fixed position */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Center the modal precisely */
+    width: 1000px;
+    height: 250px;
+    background-color: hsl(0, 0%, 100%);
+    display: none;
+    text-align: center; /* Center text horizontally */
+    font-weight: bold; /* Make text bold */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content
+

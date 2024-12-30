@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Employee Profile
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="mb-4">Εργαζόμενοι</h1>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Όνομα</th>
+                <th scope="col">Επίθετο</th>
+                <th scope="col">Email</th>
+                <th scope="col">Ημ/νία Γέννησης</th>
+                <th scope="col">Κινητό</th>
+                <th scope="col">Θέση Εργασίας</th>
+                <th scope="col">Ενέργειες</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee in employees %}
+            <tr>
+                <td>{{ employee.id }}</td>
+                <td>{{ employee.name }}</td>
+                <td>{{ employee.surname }}</td>
+                <td>{{ employee.email }}</td>
+                <td>{{ employee.birth_year }}</td>
+                <td>{{ employee.phone }}</td>
+                <td>{{ employee.job_position }}</td>
+                <td>
+                    <a class="btn btn-info btn-sm" href="/employee/{{ employee.id }}">Στοιχεία</a>
+                    <a class="btn btn-success btn-sm" href="{{ url_for('show_employee_requests', employee_id=employee.id) }}">Προβολή Αιτήσεων</a>
+                    <a class="btn btn-danger btn-sm" href="{{ url_for('show_request_form', uid=employee.id) }}">Νέα Αίτηση</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="btn btn-primary" href="/employee">Νέος Εργαζόμενος</a>
+</div>
+
+{% endblock %}

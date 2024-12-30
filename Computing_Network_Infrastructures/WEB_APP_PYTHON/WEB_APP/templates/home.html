@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid bg-dark" style="height: 100vh; overflow-y: auto;">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col-md-8 text-center">
+            <div class="jumbotron bg-secondary text-light p-5 rounded">
+                <h1 class="display-4">Καλώς ήρθατε στην Εφαρμογή </h1>
+                <h1 class="display-4">Αίτησης Αδείας Προσωπικού</h1>
+                <p class="lead">Διαδικτυακή εφαρμογή για την υποβολή αιτήσεων των αδειών.</p>
+                <hr class="my-4" style="border-color: #ffffff;">
+                <p class="lead">
+                    <a class="btn btn-secondary btn-lg" href="/employee" role="button">Νέος Εργαζόμενος</a>
+                    <a class="btn btn-secondary btn-lg" href="/employees" role="button">Εργαζόμενοι</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
